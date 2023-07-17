@@ -1,0 +1,4 @@
+?* Solution for https://leetcode.com/problems/employees-earning-more-than-their-managers/ */
+
+SELECT name AS Employee 
+FROM employee e WHERE salary > (SELECT salary FROM Employee WHERE id=e.managerId)
