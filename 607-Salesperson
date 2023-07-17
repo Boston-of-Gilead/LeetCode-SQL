@@ -1,0 +1,9 @@
+/* Solution for https://leetcode.com/problems/sales-person/description/ */
+
+SELECT name
+FROM SalesPerson s
+WHERE sales_id NOT IN (SELECT sales_id
+FROM ORDERS
+WHERE com_id = (SELECT com_id
+FROM company
+WHERE name = "RED"))
