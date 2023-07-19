@@ -1,0 +1,7 @@
+/* https://leetcode.com/problems/sales-analysis-iii/description/ */
+
+SELECT DISTINCT p.product_id,p.product_name FROM Product p
+LEFT JOIN Sales s ON p.product_id = s.product_id
+WHERE s.product_id NOT IN
+(SELECT product_id FROM SALES
+WHERE NOT (sale_date BETWEEN '2019-01-01' AND '2019-03-31'))
